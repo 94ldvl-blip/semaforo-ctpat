@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Semáforo AVISO (C-TPAT)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="cartel">
+    <!-- Franja azul con AVISO y logotipos -->
+    <header class="header-aviso">
+      <div class="logos">
+        <img src="assets/lear-scaled.jpg" alt="Logo empresa" class="logo">
+        <img src="assets/ctpat-logo-1.png" alt="Logo programa" class="logo">
+      </div>
+      <h1>AVISO</h1>
+    </header>
+
+    <!-- Texto central de protocolo -->
+    <section class="texto-protocolo">
+      <p>
+        COMO PARTE A CUMPLIMIENTO C-TPAT<br>
+        TODO EMPLEADO, VISITANTE,<br>
+        PROVEEDOR Y CONTRATISTA ES SUJETO A<br>
+        INSPECCIÓN VEHICULAR DURANTE<br>
+        ENTRADA Y SALIDA.
+      </p>
+    </section>
+
+    <!-- Semáforo -->
+    <main class="seccion-semaforo" aria-live="polite">
+      <!-- Verde = AVANCE -->
+      <div class="fila-indicador">
+        <div id="luzVerde" class="luz luz-verde" aria-label="Verde: Avance" role="img"></div>
+        <div class="igual" aria-hidden="true"></div>
+        <div class="etiqueta">
+          <span class="texto-grande">AVANCE</span>
+        </div>
+      </div>
+
+      <!-- Rojo = REVISIÓN -->
+      <div class="fila-indicador">
+        <div id="luzRoja" class="luz luz-roja" aria-label="Rojo: Revisión" role="img"></div>
+        <div class="igual" aria-hidden="true"></div>
+        <div class="etiqueta">
+          <span class="texto-grande">REVISIÓN</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- Acciones -->
+    <div class="acciones">
+      <button id="btnAccionar" class="btn primario">Accionar</button>
+      <button id="btnReset" class="btn secundario">Apagar</button>
+    </div>
+
+    <footer class="pie">
+      Hecho por Luis • Demo tipo cartel (HTML/CSS/JS) • Probabilidades: Rojo 60% | Verde 40%
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
