@@ -32,15 +32,21 @@ body{
 
 .texto-protocolo{ padding:18px 16px 8px; text-align:center; }
 .texto-protocolo p{ margin:0; font-weight: 700; letter-spacing: .8px; line-height: 1.35; }
-.seccion-semaforo{ padding: 16px 16px 8px; }
-.fila-indicador{ 
-  display:grid; 
-  grid-template-columns: auto 32px auto; 
-  align-items:center; 
-  justify-content: center;
+.seccion-semaforo{ 
+  padding: 16px 16px 8px;
+  display: grid;
   justify-items: center;
+}
+.fila-indicador{ 
+  display: grid; 
+  grid-template-columns: max-content 32px max-content; 
+  align-items: center; 
   gap: 18px; 
-  padding: 8px 0 18px; }
+  padding: 10px 0 20px;
+  width: max-content;
+  margin: 0 auto;
+  justify-items: center;
+}
 .luz{ width: clamp(160px, 22vw, 280px); 
      height: (160px, 22vw, 280px); 
      border-radius: 50%; 
@@ -49,11 +55,21 @@ body{
      transition: transform .16s ease, box-shadow .16s ease, background .2s ease; }
 .luz-verde.activa{ background: var(--verde); box-shadow: 0 0 24px rgba(6,193,103,.6); transform: scale(1.02); }
 .luz-roja.activa{ background: var(--rojo); box-shadow: 0 0 24px rgba(229,57,53,.6); transform: scale(1.02); }
-.igual{ width: 32px; height: 24px; position: relative; }
+.igual{ 
+  width: 32px; 
+  height: 24px; 
+  position: relative;
+  justify-self: center;
+}
 .igual::before, .igual::after{ content:""; position:absolute; left:0; right:0; height:8px; background:#000; border-radius:3px; }
 .igual::before{ top:0; }
 .igual::after{ bottom:0; }
-.etiqueta .texto-grande{ font-size: clamp(22px, 6vw, 34px); font-weight: 800; }
+.etiqueta{
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+         } 
+.texto-grande{ font-size: clamp(22px, 6vw, 34px); font-weight: 800; }
 .acciones{ padding: 8px 16px 16px; display:grid; gap: 10px; }
 .btn{ appearance:none; border:none; border-radius: 8px; padding: 12px 16px; font-weight: 700; cursor:pointer; transition: transform .1s ease, box-shadow .1s ease; }
 .btn.primario{ background: linear-gradient(180deg, #2f7ae5, #1f5fb9); color:#fff; box-shadow: 0 6px 12px rgba(47,122,229,.35); }
