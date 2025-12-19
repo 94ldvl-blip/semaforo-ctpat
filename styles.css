@@ -36,7 +36,7 @@ body{
   position: relative;
 }
 .header-aviso h1{
-  margin: 6px 0 0;
+  margin: 0;
   font-weight: 800;
   font-size: clamp(48px, 12vw, 96px);
   letter-spacing: 6px;
