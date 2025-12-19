@@ -21,85 +21,88 @@ body{
 
 /* Cartel general */
 .cartel{
-  width: clamp(360px, 92vw, 1000px);
+  width: clamp(360px, 94vw, 1200px);
   background: var(--blanco);
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.12);
   overflow: hidden;
 }
 
+/* Header azul */
 .header-aviso{
   background: var(--azul);
   color: var(--blanco);
-  padding: clamp(20px, 4vw, 44px) 12px;
+  padding: clamp(32px, 6vw, 72px) 16px; /* más alto */
   text-align: center;
   position: relative;
 }
 .header-aviso h1{
   margin: 0;
-  font-weight: 800;
-  font-size: clamp(48px, 12vw, 96px);
-  letter-spacing: 6px;
+  font-weight: 900;
+  font-size: clamp(72px, 14vw, 160px); /* enorme */
+  letter-spacing: 8px;
   text-transform: uppercase;
+  line-height: 1.05;
 }
 
 /* Logos superiores */
 .logos{
   position: absolute;
-  top: clamp(8px, 2.2vw, 18px); left: 16px; right: 16px;
+  top: clamp(12px, 1.8vw, 24px);
+  left: 16px; right: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
 }
 .logo{
-  height: clamp(36px, 5vw, 50px); width: auto;
+  height: clamp(40px, 4.6vw, 60px);
+  width: auto;
   object-fit: contain;
   background: #ffffffcc;
   padding: 6px 8px;
-  border-radius: 6px;
+  border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,.15);
 }
 
 /* Texto central */
-.texto-protocolo{ padding: 18px 16px 8px; text-align: center; }
+.texto-protocolo{
+  padding: 20px clamp(16px, 3vw, 24px) 10px;
+  text-align: center;
+}
 .texto-protocolo p{
   margin: 0;
-  font-weight: 700;
-  letter-spacing: .8px;
-  line-height: 1.35;
+  font-weight: 800;
+  font-size: clamp(20px, 3vw, 30px);
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  max-width: clamp(520px, 72vw, 900px);
+  text-wrap: balance;
 }
 
-/* ===== Sección semáforo (variables compartidas) ===== */
+/* ===== Sección semáforo ===== */
 .seccion-semaforo{
   padding: 16px 16px 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  /* Variables: mismo ancho y columnas para todas las filas */
-  --row-w: clamp(520px, 72vw, 900px); /* ancho consistente por fila */
-  --col-igual: 40px;                  /* ancho del “=” */
-  --col-etiqueta-min: 0px;            /* opcional: mínimo para etiqueta */
+  --row-w: clamp(520px, 72vw, 900px);
+  --col-igual: 40px;
+  --col-etiqueta-min: 0px;
 }
-
-/* Fila: luz | "=" | etiqueta  — SIEMPRE la misma plantilla */
 .fila-indicador{
   display: grid;
-  width: var(--row-w);     /* todas las filas con el mismo ancho */
+  width: var(--row-w);
   margin: 0 auto;
-
   grid-template-columns:
-    /* luz */      clamp(160px, 22vw, 280px)
-    /* "="  */     var(--col-igual)
-    /* etiqueta */ minmax(var(--col-etiqueta-min), 1fr);
-
+    clamp(160px, 22vw, 280px)
+    var(--col-igual)
+    minmax(var(--col-etiqueta-min), 1fr);
   align-items: center;
   justify-items: start;
   column-gap: 18px;
   padding: 10px 0 20px;
 }
-
-/* Luces */
 .luz{
   width: clamp(160px, 22vw, 280px);
   height: clamp(160px, 22vw, 280px);
@@ -110,13 +113,11 @@ body{
 }
 .luz-verde.activa{ background: var(--verde); box-shadow: 0 0 24px rgba(6,193,103,.6); transform: scale(1.02); }
 .luz-roja.activa{ background: var(--rojo);  box-shadow: 0 0 24px rgba(229,57,53,.6); transform: scale(1.02); }
-
-/* Signo "=" */
 .igual{
   width: var(--col-igual);
   height: 24px;
   position: relative;
-  justify-self: center;   /* centrado dentro de su celda */
+  justify-self: center;
 }
 .igual::before, .igual::after{
   content: "";
@@ -128,12 +129,10 @@ body{
 }
 .igual::before{ top: 0; }
 .igual::after{ bottom: 0; }
-
-/* Etiqueta */
 .etiqueta{
   display: flex;
   align-items: center;
-  white-space: nowrap; /* evita ruptura que desbalancea la fila */
+  white-space: nowrap;
 }
 .texto-grande{
   font-size: clamp(22px, 6vw, 34px);
@@ -154,7 +153,6 @@ body{
 .btn.primario{ background: linear-gradient(180deg, #2f7ae5, #1f5fb9); color: #fff; box-shadow: 0 6px 12px rgba(47,122,229,.35); }
 .btn.primario:hover{ transform: translateY(-1px); }
 .btn.secundario{ background: #cfd2d6; color: #1f2937; }
-
 .pie{
   padding: 10px 16px;
   text-align: center;
@@ -164,53 +162,31 @@ body{
 
 /* ===== Tablet (≥768px) ===== */
 @media (min-width: 768px) {
-  .cartel{ width: clamp(540px, 92vw, 1100px); }
-
-  .header-aviso{ padding: 16px 20px 22px; }
-  .header-aviso h1{ font-size: clamp(48px, 7vw, 80px); letter-spacing: 5px; }
-  .logos .logo{ height: 40px; padding: 6px 8px; }
-
-  .texto-protocolo{ padding: 20px 22px 10px; }
-  .texto-protocolo p{ font-size: clamp(18px, 2.4vw, 22px); line-height: 1.4; }
-
-  /* ⬇️ Solo cambiamos variables y espaciados (NO la plantilla) */
-  .seccion-semaforo{
-    --row-w: clamp(580px, 74vw, 1000px);
-    --col-igual: 44px;
-  }
-  .fila-indicador{
-    column-gap: 20px;
-    padding: 12px 0 22px;
-  }
-
+  .cartel{ width: clamp(540px, 94vw, 1200px); }
+  .header-aviso{ padding: clamp(36px, 6vw, 84px) 20px; }
+  .header-aviso h1{ font-size: clamp(80px, 14vw, 160px); letter-spacing: 8px; }
+  .logos .logo{ height: clamp(40px, 4.6vw, 60px); }
+  .texto-protocolo p{ font-size: clamp(22px, 2.8vw, 32px); }
+  .seccion-semaforo{ --row-w: clamp(580px, 74vw, 1000px); --col-igual: 44px; }
+  .fila-indicador{ column-gap: 20px; padding: 12px 0 22px; }
   .igual{ height: 28px; }
   .igual::before, .igual::after{ height: 10px; }
-
   .etiqueta .texto-grande{ font-size: clamp(26px, 4.8vw, 42px); }
-
   .acciones{ grid-template-columns: 1fr 1fr; gap: 12px; padding: 12px 22px 20px; }
   .btn{ font-size: clamp(1rem, 2.2vw, 1.125rem); padding: 14px 18px; }
-
   .pie{ font-size: 1rem; padding: 12px 22px; }
 }
 
-/* ===== Desktop pequeño / iPad Pro horizontal (≥1024px) ===== */
+/* ===== Desktop / iPad Pro (≥1024px) ===== */
 @media (min-width: 1024px) {
-  .cartel{ width: clamp(640px, 80vw, 1200px); }
-
-  .header-aviso h1{ font-size: clamp(56px, 6vw, 96px); }
-
-  /* ⬇️ Solo variables; mantenemos la MISMA plantilla de columnas */
-  .seccion-semaforo{
-    --row-w: clamp(660px, 70vw, 1100px);
-    --col-igual: 48px;
-  }
-  .fila-indicador{
-    column-gap: 24px;
-  }
-
+  .cartel{ width: clamp(640px, 90vw, 1300px); }
+  .header-aviso{ padding: clamp(40px, 7vw, 96px) 24px; }
+  .header-aviso h1{ font-size: clamp(96px, 12vw, 180px); letter-spacing: 10px; }
+  .logos .logo{ height: clamp(44px, 4vw, 64px); }
+  .texto-protocolo p{ font-size: clamp(24px, 2.4vw, 34px); }
+  .seccion-semaforo{ --row-w: clamp(660px, 70vw, 1100px); --col-igual: 48px; }
+  .fila-indicador{ column-gap: 24px; }
   .etiqueta .texto-grande{ font-size: clamp(30px, 3.8vw, 48px); }
-
   .btn{ font-size: clamp(1.05rem, 1.8vw, 1.2rem); padding: 16px 20px; }
 }
 
