@@ -15,9 +15,14 @@ body{
   color: var(--negro);
   display:grid;
   place-items:center;
-  min-height:100vh;
+  min-height:100svh;
 }
-.cartel{ width:min(450px, 95vw); background: var(--blanco); border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); overflow:hidden; }
+.cartel{ 
+  width: clamp(360px, 92vw, 1000px); 
+  background: var(--blanco); 
+  border-radius: 10px; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12); 
+  overflow:hidden; }
 .header-aviso{ background: var(--azul); color: var(--blanco); padding: 12px 12px 18px; text-align:center; position: relative; }
 .header-aviso h1{ margin:6px 0 0; font-weight: 800; font-size: clamp(36px, 10vw, 72px); letter-spacing: 4px; }
 
@@ -43,3 +48,47 @@ body{
 .btn.primario:hover{ transform: translateY(-1px); }
 .btn.secundario{ background: #cfd2d6; color:#1f2937; }
 .pie{ padding: 10px 16px; text-align:center; color: var(--gris-osc); font-size:.85rem; }
+
+
+/* ===== Tablet (≥768px) ===== */
+@media (min-width: 768px) {
+  .cartel{ width: clamp(540px, 90vw, 1000px); }
+
+  .header-aviso{ padding: 16px 20px 22px; }
+  .header-aviso h1{ font-size: clamp(48px, 7vw, 80px); letter-spacing: 5px; }
+  .logos .logo{ height: 40px; padding: 6px 8px; }
+
+  .texto-protocolo{ padding: 20px 22px 10px; }
+  .texto-protocolo p{ font-size: clamp(18px, 2.4vw, 22px); line-height: 1.4; }
+
+  .seccion-semaforo{ padding: 18px 22px 10px; }
+  .fila-indicador{ grid-template-columns: auto 40px 1fr; gap: 20px; padding: 10px 0 20px; }
+
+  .luz{ width: 200px; height: 200px; }
+
+  .igual{ width: 40px; height: 28px; }
+  .igual::before, .igual::after{ height: 10px; }
+
+  .etiqueta .texto-grande{ font-size: clamp(26px, 4.8vw, 42px); }
+
+  .acciones{ grid-template-columns: 1fr 1fr; gap: 12px; padding: 12px 22px 20px; }
+  .btn{ font-size: clamp(1rem, 2.2vw, 1.125rem); padding: 14px 18px; }
+
+  .pie{ font-size: 1rem; padding: 12px 22px; }
+}
+
+/* ===== Desktop pequeño / iPad Pro horizontal (≥1024px) ===== */
+@media (min-width: 1024px) {
+  .cartel{ width: clamp(640px, 80vw, 1100px); }
+
+  .header-aviso h1{ font-size: clamp(56px, 6vw, 96px); }
+
+  .luz{ width: 240px; height: 240px; }
+
+  .fila-indicador{ grid-template-columns: auto 48px 1fr; gap: 24px; }
+
+  .etiqueta .texto-grande{ font-size: clamp(30px, 3.8vw, 48px); }
+
+  .btn{ font-size: clamp(1.05rem, 1.8vw, 1.2rem); padding: 16px 20px; }
+}
+
