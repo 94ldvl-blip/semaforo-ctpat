@@ -52,7 +52,7 @@ body{
 
 /* ===== Tablet (≥768px) ===== */
 @media (min-width: 768px) {
-  .cartel{ width: clamp(540px, 92vw, 1000px); }
+  .cartel{ width: clamp(540px, 92vw, 1100px); }
 
   .header-aviso{ padding: 16px 20px 22px; }
   .header-aviso h1{ font-size: clamp(48px, 7vw, 80px); letter-spacing: 5px; }
@@ -79,7 +79,7 @@ body{
 
 /* ===== Desktop pequeño / iPad Pro horizontal (≥1024px) ===== */
 @media (min-width: 1024px) {
-  .cartel{ width: clamp(640px, 80vw, 1100px); }
+  .cartel{ width: clamp(640px, 80vw, 1200px); }
 
   .header-aviso h1{ font-size: clamp(56px, 6vw, 96px); }
 
