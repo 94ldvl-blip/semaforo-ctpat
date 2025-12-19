@@ -34,21 +34,22 @@ body{
 .texto-protocolo p{ margin:0; font-weight: 700; letter-spacing: .8px; line-height: 1.35; }
 .seccion-semaforo{ 
   padding: 16px 16px 8px;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-items: center;
 }
 .fila-indicador{ 
-  display: grid; 
+  display: inline-grid; 
   grid-template-columns: max-content 32px max-content; 
   align-items: center; 
   gap: 18px; 
   padding: 10px 0 20px;
-  width: max-content;
   margin: 0 auto;
   justify-items: center;
 }
-.luz{ width: clamp(160px, 22vw, 280px); 
-     height: (160px, 22vw, 280px); 
+.luz{ 
+     width: clamp(160px, 22vw, 280px); 
+     height: clamp(160px, 22vw, 280px); 
      border-radius: 50%; 
      background: var(--gris); 
      box-shadow: inset 0 0 18px rgba(0,0,0,0.2); 
@@ -90,7 +91,7 @@ body{
   .texto-protocolo p{ font-size: clamp(18px, 2.4vw, 22px); line-height: 1.4; }
 
   .seccion-semaforo{ padding: 18px 22px 10px; }
-  .fila-indicador{ grid-template-columns: auto 40px 1fr; gap: 20px; padding: 10px 0 20px; }
+  .fila-indicador{ grid-template-columns: max-content 40px max-content; gap: 20px; padding: 10px 0 20px; }
 
   .luz{ width: 200px; height: 200px; }
 
@@ -113,7 +114,7 @@ body{
 
   .luz{ width: 240px; height: 240px; }
 
-  .fila-indicador{ grid-template-columns: auto 48px 1fr; gap: 24px; }
+  .fila-indicador{ grid-template-columns: max-content 48px max-content; gap: 24px; }
 
   .etiqueta .texto-grande{ font-size: clamp(30px, 3.8vw, 48px); }
 
